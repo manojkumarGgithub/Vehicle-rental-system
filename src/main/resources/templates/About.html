@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>My-Canteen</title>
+    <link rel="icon" type="image/x-icon" href="./Images/gmritlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Attach Navigation.css -->
+    <link rel="stylesheet" th:href="@{/css/Navigation.css}" />
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Poppins', sans-serif;
+          background: #222;
+          color: #fff;
+        }
+
+        /* Page wrapper for centering only the form */
+        .page-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: calc(100vh - 80px); /* leaves space for navbar */
+        }
+
+        .feedback-container {
+          background: #333;
+          padding: 40px;
+          border-radius: 12px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+          width: 400px;
+          text-align: center;
+        }
+
+        .feedback-container h2 {
+          margin-bottom: 20px;
+          color: crimson;
+        }
+
+        .inputBox {
+          position: relative;
+          margin: 20px 0;
+        }
+
+        .inputBox input,
+        .inputBox textarea {
+          width: 100%;
+          padding: 10px;
+          background: transparent;
+          border: none;
+          border-bottom: 2px solid crimson;
+          color: #fff;
+          font-size: 1em;
+          outline: none;
+          resize: none;
+        }
+
+        .inputBox span {
+          position: absolute;
+          left: 0;
+          top: 10px;
+          color: #aaa;
+          pointer-events: none;
+          transition: 0.3s;
+        }
+
+        .inputBox input:focus ~ span,
+        .inputBox input:valid ~ span,
+        .inputBox textarea:focus ~ span,
+        .inputBox textarea:valid ~ span {
+          color: crimson;
+          font-size: 0.9em;
+          transform: translateY(-20px);
+        }
+
+        input[type="submit"] {
+          width: 100%;
+          padding: 12px;
+          background: crimson;
+          border: none;
+          border-radius: 6px;
+          color: #fff;
+          font-size: 1.1em;
+          cursor: pointer;
+          margin-top: 10px;
+          transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+          background: darkred;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav th:replace="~{Navigation::navbar()}"></nav>
+
+<!-- Page wrapper -->
+<div class="page-wrapper">
+    <!-- Feedback Form -->
+    <div class="feedback-container">
+        <h2>Food Feedback</h2>
+        <form th:action="@{/submitFeedback}" method="post">
+            <div class="inputBox">
+                <input type="text" name="foodName" required>
+                <span>Food Name</span>
+            </div>
+            <div class="inputBox">
+                <input type="number" name="foodCost" required>
+                <span>Food Cost (₹)</span>
+            </div>
+            <div class="inputBox">
+                <textarea name="review" rows="4" required></textarea>
+                <span>Your Review</span>
+            </div>
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
+</div>
+</body>
+</html>

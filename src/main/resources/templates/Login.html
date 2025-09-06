@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My-canteen</title>
+    <link rel="icon" type="image/x-icon" href="./Images/gmritlogo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+    <style>
+        /* Background Image */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            background: url('./Images/canteen2.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container to hold admin + user login */
+        .LoginContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* Box styling */
+        .admin, .user {
+            background: rgba(255, 255, 255, 0.9); /* slight white background for readability */
+            border-radius: 12px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .loginButton {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .loginButton:hover {
+            background: darkgreen;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .LoginContainer {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav th:replace="~{Navigation::navbar()}"></nav>
+
+<div class="LoginContainer">
+    <!-- Admin Login -->
+    <div class="admin">
+        <div class="content">
+            <strong style="font-size: 16px;margin-bottom: 0px;">BUSINESS</strong>
+            <h2>For <span style="color:green;">Admins</span></h2>
+            <form th:action="@{/adminLogin}" method="post">
+                <b>Email :</b>
+                <input type="email" name="email" placeholder="Enter email..." class="email"> <br />
+                <b>Password:</b>
+                <input type="password" name="password" placeholder="Enter password" class="password">
+                <small style="color: red;" th:text="${error}"></small><br />
+                <button type="submit" class="loginButton">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Login -->
+    <div class="user">
+        <div class="content">
+            <h2> For <span style="color:green;">Users</span></h2>
+            <form th:action="@{/userLogin}" method="post" class="form">
+                <b>Email :</b>
+                <input type="email" name="userEmail" placeholder="Enter email"><br />
+                <b>Password:</b>
+                <input type="password" name="userPassword" placeholder="Enter password" required maxlength="8" minlength="4" class="userPassword"><br />
+                <small style="color: red;" th:text="${error2}"></small><br />
+                <button type="submit" class="loginButton">Log in</button><br>
+                <p>I don't have an account? <a th:href="@{/register}" style="color: green;">Register Here</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

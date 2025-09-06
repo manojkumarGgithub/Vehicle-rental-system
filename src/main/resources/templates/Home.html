@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>My-Canteen</title>
+    <link rel="icon" type="image/x-icon" href="./Images/gmritlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/navi.css}" />
+    <link rel="stylesheet" href="" th:href="@{/css/Home.css}" />
+    <style>
+        /* Full-page background with overlay */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100%;
+            background: url('./Images/canteenhome.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Dark overlay for transparency effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* adjust transparency */
+            z-index: 1;
+        }
+
+        /* Centered text */
+        .text {
+            position: relative;
+            z-index: 2; /* show above overlay */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            color: white;
+            padding: 0 15px;
+        }
+
+        .text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .text h3 {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        /* Responsive scaling */
+        @media (max-width: 768px) {
+            .text h1 {
+                font-size: 2.2rem;
+            }
+            .text h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text h1 {
+                font-size: 1.8rem;
+            }
+            .text h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav th:replace="~{Navigation::navbar()}"></nav>
+<div class="text">
+    <h1>WELCOME</h1>
+    <h3>
+        A smart and user-friendly website for our college canteen <br />
+        that allows students and staff to explore the menu, place orders online, and save time during breaks.
+    </h3>
+</div>
+</body>
+
+</html>

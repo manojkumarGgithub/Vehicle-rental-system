@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Order Success</title>
+    <style>
+        body {
+            background-color: #f5f5f5; /* light neutral background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .success-container {
+            text-align: center;
+            background-color: #ffffff; /* white card */
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .success-container h4 {
+            color: #28a745; /* green */
+            margin-bottom: 20px;
+        }
+
+        .success-container h3 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .success-container span {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+<div class="success-container">
+    <h4>Order Successful!</h4>
+    <h3>Your purchased amount is: <span th:text="'₹ '+${amount}+'/-'"></span></h3>
+    <a href="/product/back" class="back-btn">Back</a>
+</div>
+</body>
+
+</html>

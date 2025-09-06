@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Buy Product</title>
+    <link rel="stylesheet" href="" />
+    <style>
+        body {
+            background-image: url([[@{/Images/pim.jpg}]]);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            border: 1px solid black;
+            background-color: yellow;
+            color: black;
+            text-decoration: none;
+            padding: 7px;
+            width: 50px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            text-align: center;
+        }
+
+        center {
+            margin-top: 50px;
+        }
+
+        .searchInput input {
+            padding: 15px;
+            width: 270px;
+            margin-right: 10px;
+        }
+
+        .searchInput button {
+            padding: 15px;
+            width: 100px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .details {
+            margin-top: 30px;
+            background-color: rgba(0, 0, 0, 0.6); /* semi-transparent dark background */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            color: white;
+        }
+
+        .details input,
+        .details button {
+            display: block;
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .details button {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .details table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .details th,
+        .details td {
+            border: 1px solid #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .details th {
+            background-color: #ffeb3b; /* yellow */
+            color: black;
+        }
+
+        .details td {
+            background-color: rgba(255, 255, 255, 0.1); /* transparent cell background for contrast */
+        }
+
+        small {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<a href="/login">Back</a>
+<center>
+    <form action="" th:action="@{/product/search}" method="post" class="searchInput">
+        <h1>Search :</h1>
+        <input type="text" name="productName" required placeholder="Please enter the Dish Name....">
+        <button type="submit">SEARCH</button><br />
+        <small style="color: red;" th:text="${message}"> </small>
+    </form>
+
+    <div th:if="${product!=null}" class="details">
+        <form action="" th:action="@{/product/order}" th:object="${product}" method="post">
+            Dish Name :
+            <input type="text" value="" name="oName" th:value="${product.pname}" readonly /><br />
+            Dish Price :
+            <input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
+            Quantity :
+            <input type="number" placeholder="Minimum: 1KG" min="1" name="oQuantity" /><br />
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div th:if="${orders!=null}" class="details">
+        <h2>Your Orders :</h2>
+        <table>
+            <tr>
+                <th>Dish Name</th>
+                <th>Dish Price</th>
+                <th>Dish Quantity</th>
+                <th>Total Amount</th>
+                <th>Date</th>
+            </tr>
+            <tr th:each="order :${orders}">
+                <td th:text="${order.oName}"></td>
+                <td th:text="${order.oPrice}"></td>
+                <td th:text="${order.oQuantity}"></td>
+                <td th:text="${order.totalAmmout}"></td>
+                <td th:text="${order.orderDate}"></td>
+            </tr>
+        </table>
+    </div>
+</center>
+</body>
+
+</html>

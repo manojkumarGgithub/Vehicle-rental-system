@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-Canteen</title>
+    <link rel="icon" type="image/x-icon" href="./Images/gmritlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+    <link rel="stylesheet" href="" th:href="@{css/Products.css}" />
+</head>
+
+<body>
+    <nav th:replace="~{Navigation::navbar()}"></nav>
+    <div id="main-container">
+    <div id="biryani"> 
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/biryani/Biryani_of_Hyderabadi.jpg" alt="Chicken Biryani">
+            <p class="item-name">Chicken Biryani</p>
+            <p class="item-price">Price: Rs 130</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>
+ 
+ <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/idly.jpg" alt="Chicken Biryani">
+            <p class="item-name">Idly</p>
+            <p class="item-price">Price: Rs 30</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div> 
+         
+         <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/egg noodles.jpg" alt="Chicken Biryani">
+            <p class="item-name">Egg noodles</p>
+            <p class="item-price">Price: Rs 60</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div> 
+        
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/dosa.jpg" alt="Chicken Biryani">
+            <p class="item-name">Dosa</p>
+            <p class="item-price">Price: Rs 40</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div> 
+        
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/chicken noodles.jpg" alt="Chicken Biryani">
+            <p class="item-name">Chicken noodles</p>
+            <p class="item-price">Price: Rs 80</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div> 
+        
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/veg biryani.jpg" alt="Chicken Biryani">
+            <p class="item-name">Veg Biryani</p>
+            <p class="item-price">Price: Rs 110</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>
+      
+      <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/mughlai biryani.jpg" alt="Chicken Biryani">
+            <p class="item-name">mughlai biryani</p>
+            <p class="item-price">Price: Rs 140</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div> 
+        
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/north-india-food/Honey-Chilli-Potato.jpg" alt="Chicken Biryani">
+            <p class="item-name">Chilli chicken</p>
+            <p class="item-price">Price: Rs 150</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>   
+         
+         <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/north-india-food/chola-bhatura.jpg" alt="Chicken Biryani">
+            <p class="item-name">Puri</p>
+            <p class="item-price">Price: Rs 30</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>   
+         
+         <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/north-india-food/Gulab Jamun.jpg" alt="Chicken Biryani">
+            <p class="item-name">sweet</p>
+            <p class="item-price">Price: Rs 50</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>   
+        
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/chinese/chowmein.jpg" alt="Chicken Biryani">
+            <p class="item-name">veg noodles</p>
+            <p class="item-price">Price: Rs 150</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>   
+        
+        <div class="item-card">
+            <div class="card-top">
+                <i class="fa fa-heart-o add-to-cart" aria-label="Add to favorites"></i>
+            </div>
+            <img src="./Images/paneer/paneer-do-pyaza.jpg" alt="Chicken Biryani">
+            <p class="item-name">Paneer curry</p>
+            <p class="item-price">Price: Rs 170</p>
+            <a href="/login" id="buy">Buy Now</a>
+        </div>  
+         
+    </div>
+    </div>
+    <script>
+        document.getElementById("buy").addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("Please Login as a User to buy Products");
+        });
+    </script>
+</body>
+
+</html>
+
