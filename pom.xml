@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.org</groupId>
-	<artifactId>GmritCanteen</artifactId>
+	<artifactId>Agriculture</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>FoodFrenzy</name>
 	<description>FoodFrenzy using Spring Boot and Thymeleaf</description>

@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="" />
     <style>
         body {
-            background-image: url([[@{/Images/pim.jpg}]]);
-            background-size: cover;
-            background-repeat: no-repeat;
+            background: url('./Images/login wall.jpg') no-repeat center center/cover;
             background-attachment: fixed;
             font-family: sans-serif;
             font-size: 16px;
@@ -107,19 +105,19 @@
 <center>
     <form action="" th:action="@{/product/search}" method="post" class="searchInput">
         <h1>Search :</h1>
-        <input type="text" name="productName" required placeholder="Please enter the Dish Name....">
+        <input type="text" name="productName" required placeholder="Please enter the Vehicle Name....">
         <button type="submit">SEARCH</button><br />
         <small style="color: red;" th:text="${message}"> </small>
     </form>
 
     <div th:if="${product!=null}" class="details">
         <form action="" th:action="@{/product/order}" th:object="${product}" method="post">
-            Dish Name :
+            Vehicle Name :
             <input type="text" value="" name="oName" th:value="${product.pname}" readonly /><br />
-            Dish Price :
+            One day Price :
             <input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
-            Quantity :
-            <input type="number" placeholder="Minimum: 1KG" min="1" name="oQuantity" /><br />
+            No.of days :
+            <input type="number" placeholder="Minimum: 1Day" min="1" name="oQuantity" /><br />
             <button type="submit">Order Now</button>
         </form>
     </div>
@@ -128,9 +126,9 @@
         <h2>Your Orders :</h2>
         <table>
             <tr>
-                <th>Dish Name</th>
-                <th>Dish Price</th>
-                <th>Dish Quantity</th>
+                <th>Vehicle Name</th>
+                <th>One day Price</th>
+                <th>No.of days</th>
                 <th>Total Amount</th>
                 <th>Date</th>
             </tr>

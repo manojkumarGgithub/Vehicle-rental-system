@@ -2,10 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>My-Canteen</title>
-    <link rel="icon" type="image/x-icon" href="./Images/gmritlogo.png">
+    <title>About | Vehicle Rental</title>
+    <link rel="icon" type="image/x-icon" href="./Images/logoo.jpgg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Attach Navigation.css -->
     <link rel="stylesheet" th:href="@{/css/Navigation.css}" />
     <style>
         body {
@@ -16,107 +15,130 @@
           color: #fff;
         }
 
-        /* Page wrapper for centering only the form */
         .page-wrapper {
           display: flex;
           justify-content: center;
           align-items: center;
-          min-height: calc(100vh - 80px); /* leaves space for navbar */
+          min-height: calc(100vh - 80px);
         }
 
-        .feedback-container {
+        .about-container {
           background: #333;
           padding: 40px;
           border-radius: 12px;
           box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-          width: 400px;
+          width: 800px;
+          text-align: center;
+          line-height: 1.6;
+        }
+
+        .about-container h2 {
+          margin-bottom: 20px;
+          color: crimson;
+          font-size: 2em;
+        }
+
+        .about-container p {
+          font-size: 1.05em;
+          color: #ddd;
+          margin-bottom: 20px;
+          text-align: justify;
+        }
+
+        .about-container .highlight {
+          color: crimson;
+          font-weight: 600;
+        }
+
+        .team-section {
+          margin-top: 30px;
+        }
+
+        .team-member {
+          display: inline-block;
+          margin: 15px;
           text-align: center;
         }
 
-        .feedback-container h2 {
-          margin-bottom: 20px;
-          color: crimson;
+        .team-member img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          border: 2px solid crimson;
+          object-fit: cover;
         }
 
-        .inputBox {
-          position: relative;
-          margin: 20px 0;
-        }
-
-        .inputBox input,
-        .inputBox textarea {
-          width: 100%;
-          padding: 10px;
-          background: transparent;
-          border: none;
-          border-bottom: 2px solid crimson;
-          color: #fff;
-          font-size: 1em;
-          outline: none;
-          resize: none;
-        }
-
-        .inputBox span {
-          position: absolute;
-          left: 0;
-          top: 10px;
-          color: #aaa;
-          pointer-events: none;
-          transition: 0.3s;
-        }
-
-        .inputBox input:focus ~ span,
-        .inputBox input:valid ~ span,
-        .inputBox textarea:focus ~ span,
-        .inputBox textarea:valid ~ span {
-          color: crimson;
-          font-size: 0.9em;
-          transform: translateY(-20px);
-        }
-
-        input[type="submit"] {
-          width: 100%;
-          padding: 12px;
-          background: crimson;
-          border: none;
-          border-radius: 6px;
-          color: #fff;
-          font-size: 1.1em;
-          cursor: pointer;
+        .team-member h4 {
           margin-top: 10px;
-          transition: 0.3s;
+          color: #fff;
         }
 
-        input[type="submit"]:hover {
-          background: darkred;
+        .team-member span {
+          color: #aaa;
+          font-size: 0.9em;
         }
     </style>
 </head>
 <body>
+
 <!-- Navbar -->
 <nav th:replace="~{Navigation::navbar()}"></nav>
 
-<!-- Page wrapper -->
+<!-- About Section -->
 <div class="page-wrapper">
-    <!-- Feedback Form -->
-    <div class="feedback-container">
-        <h2>Food Feedback</h2>
-        <form th:action="@{/submitFeedback}" method="post">
-            <div class="inputBox">
-                <input type="text" name="foodName" required>
-                <span>Food Name</span>
+    <div class="about-container">
+        <h2>About Our Vehicle Rental Service</h2>
+
+        <p>
+            Welcome to <span class="highlight">Vehicle Rentals</span>, your trusted partner for convenient and affordable vehicle rental services.
+            Whether you need a car for a weekend getaway, a bike for daily commutes, or a jeep for your next adventure — we’ve got you covered!
+        </p>
+
+        <p>
+            Our goal is to make renting vehicles simple, transparent, and reliable.
+            With a wide range of well-maintained vehicles and easy booking options,
+            we ensure that your travel experience is always smooth and hassle-free.
+        </p>
+
+        <p>
+            At <span class="highlight"> Vehicle Rentals</span>, customer satisfaction is our top priority.
+            Our team is committed to providing quality service, competitive pricing, and round-the-clock support to make your journey memorable.
+        </p>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-member">
+                <img src="./Images/manoju.jpg" alt="Team Member 1">
+                <h4>G.Manoj Kumar</h4>
+                <span>Team Lead</span>
             </div>
-            <div class="inputBox">
-                <input type="number" name="foodCost" required>
-                <span>Food Cost (₹)</span>
+            <div class="team-member">
+                <img src="./Images/hema.jpg" alt="Team Member 2">
+                <h4>S.Hemachandram</h4>
+                <span>Team member</span>
             </div>
-            <div class="inputBox">
-                <textarea name="review" rows="4" required></textarea>
-                <span>Your Review</span>
+            <div class="team-member">
+                <img src="./Images/pal.jpg" alt="Team Member 3">
+                <h4>Abhishek pal</h4>
+                <span>Team member</span>
             </div>
-            <input type="submit" value="Submit Feedback">
-        </form>
+            <div class="team-member">
+                <img src="./Images/gopalu.jpg" alt="Team Member 3">
+                <h4>k. Gopal</h4>
+                <span>Team member</span>
+
+            </div>
+            <div class="team-member">
+                <img src="./Images/boruto.jpg" alt="Team Member 3">
+                <h4>Praveen</h4>
+                <span>Team member</span>
+
+            </div>
+        </div>
     </div>
 </div>
+
 </body>
 </html>
+

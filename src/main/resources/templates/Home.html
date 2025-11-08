@@ -1,92 +1,143 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.com">
-
 <head>
     <meta charset="UTF-8" />
-    <title>My-Canteen</title>
-    <link rel="icon" type="image/x-icon" href="./Images/gmritlogo.png">
+    <title>Vehicle Rental</title>
+    <link rel="icon" type="image/x-icon" href="./Images/logoo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="" th:href="@{/css/navi.css}" />
     <link rel="stylesheet" href="" th:href="@{/css/Home.css}" />
+
     <style>
-        /* Full-page background with overlay */
+        /* ====== GLOBAL STYLES ====== */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            width: 100%;
-            background: url('./Images/canteenhome.jpg') no-repeat center center fixed;
-            background-size: cover;
-            position: relative;
+          height: 100vh;
+          width: 100%;
+          font-family: 'Poppins', sans-serif;
+          background: url('./Images/varw9.jpg') no-repeat center center/cover;
+          position: relative;
+          color: white;
+          overflow-x: hidden;
         }
 
-        /* Dark overlay for transparency effect */
+        /* ====== DARK OVERLAY ====== */
         body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* adjust transparency */
-            z-index: 1;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          z-index: 1;
         }
 
-        /* Centered text */
+        /* ====== HERO TEXT ====== */
         .text {
-            position: relative;
-            z-index: 2; /* show above overlay */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 100vh;
-            color: white;
-            padding: 0 15px;
+          position: relative;
+          z-index: 2;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 0 20px;
+          animation: fadeIn 1.2s ease-in-out;
         }
 
         .text h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+          font-size: 3.5rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #fff;
+          text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+          margin-bottom: 15px;
+          animation: slideIn 1.3s ease-in-out;
         }
 
         .text h3 {
-            font-size: 1.5rem;
-            max-width: 800px;
-            line-height: 1.6;
+          font-size: 1.4rem;
+          line-height: 1.6;
+          color: #f1f1f1;
+          max-width: 700px;
+          animation: fadeUp 1.6s ease-in-out;
         }
 
-        /* Responsive scaling */
+        /* ====== BUTTON STYLING ====== */
+        .btn {
+          margin-top: 30px;
+          padding: 12px 30px;
+          background-color: #f9c70c;
+          color: #000;
+          border: none;
+          border-radius: 30px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          z-index: 2;
+        }
+
+        .btn:hover {
+          background-color: #fff;
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+          from { transform: translateY(-40px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+          from { transform: translateY(40px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
         @media (max-width: 768px) {
-            .text h1 {
-                font-size: 2.2rem;
-            }
-            .text h3 {
-                font-size: 1.2rem;
-            }
+          .text h1 {
+            font-size: 2.5rem;
+          }
+          .text h3 {
+            font-size: 1.1rem;
+            max-width: 90%;
+          }
         }
 
         @media (max-width: 480px) {
-            .text h1 {
-                font-size: 1.8rem;
-            }
-            .text h3 {
-                font-size: 1rem;
-            }
+          .text h1 {
+            font-size: 2rem;
+          }
+          .text h3 {
+            font-size: 1rem;
+          }
         }
     </style>
 </head>
 
 <body>
 <nav th:replace="~{Navigation::navbar()}"></nav>
+
 <div class="text">
-    <h1>WELCOME</h1>
-    <h3>
-        A smart and user-friendly website for our college canteen <br />
-        that allows students and staff to explore the menu, place orders online, and save time during breaks.
-    </h3>
+    <h1>Vehicle Rental</h1>
+    <h3>Your one-stop solution for quick and affordable vehicle rentals.</h3>
+    <a th:href="@{/products}" class="btn">Explore Vehicles</a>
+
 </div>
 </body>
-
 </html>
